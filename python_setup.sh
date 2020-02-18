@@ -1,5 +1,21 @@
 #!/bin/bash
 
+#USE 
+#batepy <command code> <arguments>
+
+#MENU
+
+    #COMMAND CODE
+    # 1 - install virtual environment
+        #ARGS
+        #-Name
+    # 2 - start venv
+        #ARGS
+        #-Name
+    # 3 - stop venv
+        #ARGS
+        #-Name        
+
 # DESCRIPTION :
 # This is a bash script to setup following :
 # -Python VirtualEnvironment
@@ -21,14 +37,21 @@ PKG_OK=$(dpkg-query -W --showformat='${Status}\n' virtualenv|grep "install ok in
 if [ "" == "$PKG_OK" ]
 then
     echo "Python Virtual Environment not found, setting it up right now...\n\n"
-    (sudo apt-get install python-virtualenv) > log.txt
+    (sudo apt-get install python3-pip) > log.txt
+    (sudo pip3 install virtualenv) >> log.txt
     rm log.txt
     echo "virtualenv installed.\n"    
 fi
 
-if [ "$arg1"==1 ] 
-then echo "creating..."
-     (virtualenv $2) > log.txt
+case $arg1 in 
+'1') echo "creating..."
+     (virtualenv $arg2) > log.txt
      rm log.txt   
-     echo "$2 is created."
-fi
+     echo "$arg2 is created."
+     ;;
+'2') echo "starting $arg2..."
+     X=$(pwd)
+     gnome-terminal --working-directory='X' -- bash -c "source '$(pwd)/bate/$arg2/bin/activate' > log.txt;rm log.txt; exec bash"   
+     echo "$arg2 is activated."
+     ;;
+esac
