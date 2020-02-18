@@ -6,12 +6,18 @@ set_local_vars(){
     #saaf
     #purpose:testing
     #to remove all venv files
-    alias saaf='rm -r -v !(bate.sh|python_setup.sh) > log.txt; rm log.txt; echo Cleaned!';
+    alias saaf='rm -r -v !(bate*) > log.txt; rm log.txt; echo Cleaned!';
     
     #setpy
     #purpose : production
-    alias batepy='. ./python_setup.sh';
+    alias batepy='. ./bate_python_setup.sh';
+
+    #source-util
+    alias venv_activate='source bate/$arg2/bin/activate; exec bash';  
     
 }
-set_local_vars
-echo "LOCAL VARIABLES LOADED !"    
+set_local_vars 
+echo "WELCOME TO BATE !!"
+echo ""
+echo "Type 'batepy 0' to get started."
+echo ""   

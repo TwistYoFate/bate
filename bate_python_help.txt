@@ -1,0 +1,25 @@
+"DESCRIPTION :
+This is a bash script to setup following :
+-Python VirtualEnvironment
+-Creating VirtualEnvironment
+-Delete VirtualEnvironment
+
+OUT OF SCOPE
+-Install python in virtual Environments
+
+USE 
+batepy <COMMAND_CODE> <ARGS>
+
+MENU
+
+    COMMAND_CODE
+    1 - Create virtual environment
+        ARGS
+            -Name
+    2 - Start specified(passed as second argument) virtual environment
+        ARGS
+            -Name
+    3 - Stop specified(passed as second argument) virtual environment
+        ARGS
+            -Name        
+"
